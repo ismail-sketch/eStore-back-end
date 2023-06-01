@@ -1,15 +1,17 @@
 import express from 'express'
 const router = express.Router()
 
-// Вход
+import { createUser } from '../controllers/user.js'
+
+
+
+// Регистрация
+router.post('/signup', createUser)
+
+// Авторизация
 router.post('/signin', (req, res) => {
 
 })
 
-
-// Регистрация
-router.post('/signup', (req, res) => {
-
-})
 
 export default router

@@ -30,14 +30,14 @@ const userSchema = new Schema({
         unique: true,
         lowercase: true
     },
-    hash_password: {
+    password: {
         type: String,
         required: true,
     },
     role: {
         type: String,
         enum: ['user', 'admin'],
-        default: 'admin'
+        default: 'user'
     },
     contactNumber: {
         type: String,
@@ -50,5 +50,7 @@ const userSchema = new Schema({
     timestamps: true,
 }
 )
+
+
 
 export default mongoose.model('User', userSchema)
