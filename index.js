@@ -6,13 +6,12 @@ import mongoose from 'mongoose'
 env.config()
 const app = express()
 
-import userRoutes from './routes/user.js'
+import authRoutes from './routes/auth.js'
+import adminRoutes from './routes/admin/auth.js'
 
 app.use(bodyParser.json())
-app.use('/api', userRoutes)
-
-
-
+app.use('/api', authRoutes)
+app.use('/api', adminRoutes)
 
 
 

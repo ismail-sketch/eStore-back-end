@@ -51,6 +51,9 @@ const userSchema = new Schema({
 }
 )
 
-
+userSchema.virtual('fullName')
+.get(() => {
+    return `${this.firstName} ${this.lastName}`
+})
 
 export default mongoose.model('User', userSchema)
