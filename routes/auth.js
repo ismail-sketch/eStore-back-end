@@ -3,7 +3,7 @@ const router = express.Router()
 
 
 import { createUser, loginUser } from '../controllers/auth.js'
-import requireSingin from '../middleware/requireSingin.js'
+import { requireSingin } from '../middleware/index.js'
 import { validateSignUpRequest, validateSignInRequest, isRequestValidated } from '../validators/auth.js'
 
 

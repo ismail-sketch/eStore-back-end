@@ -1,17 +1,18 @@
 
 import express from 'express'
 import env from 'dotenv'
-import bodyParser from 'body-parser'
 import mongoose from 'mongoose'
 env.config()
 const app = express()
 
 import authRoutes from './routes/auth.js'
 import adminRoutes from './routes/admin/auth.js'
+import categoryRoutes from './routes/category.js'
 
-app.use(bodyParser.json())
+app.use(express.json())
 app.use('/api', authRoutes)
 app.use('/api', adminRoutes)
+app.use('/api', categoryRoutes)
 
 
 
