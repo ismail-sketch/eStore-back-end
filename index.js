@@ -4,17 +4,20 @@ import env from 'dotenv'
 import mongoose from 'mongoose'
 env.config()
 const app = express()
+import morgan from 'morgan'
 
 import authRoutes from './routes/auth.js'
 import adminRoutes from './routes/admin/auth.js'
 import categoryRoutes from './routes/category.js'
+import productRoutes from './routes/product.js'
 
 app.use(express.json())
 app.use('/api', authRoutes)
 app.use('/api', adminRoutes)
 app.use('/api', categoryRoutes)
+app.use('/api', productRoutes)
 
-
+app.use(morgan('tiny'))
 
 
 

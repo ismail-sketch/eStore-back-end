@@ -14,9 +14,6 @@ router.post('/admin/signup', validateSignUpRequest, isRequestValidated, createUs
 // Авторизация
 router.post('/admin/signin', validateSignInRequest, isRequestValidated, loginUser)
 
-// router.post('/profile', requireSingin, (req, res) => {
-//     res.status(200).json({user: 'profile'})
-// })
 
 
 export default router
