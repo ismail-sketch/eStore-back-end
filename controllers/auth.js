@@ -39,7 +39,7 @@ export const loginUser = async (req, res) => {
             if(!validPassword) {
                 return res.status(400).json({message: 'Неверный email или пароль'})
             }
-            const token = jwt.sign({id: user._id}, process.env.JWT_SECRET, {expiresIn: '24h'})
+            const token = jwt.sign({id: user._id, role: user.role}, process.env.JWT_SECRET, {expiresIn: '24h'})
             // const {firstName, lastName, email, role, fullName} = user
 
             res.status(200).json({

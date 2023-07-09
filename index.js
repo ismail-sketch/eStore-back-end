@@ -6,16 +6,25 @@ env.config()
 const app = express()
 import morgan from 'morgan'
 
+import path from 'path'
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
 import authRoutes from './routes/auth.js'
 import adminRoutes from './routes/admin/auth.js'
 import categoryRoutes from './routes/category.js'
 import productRoutes from './routes/product.js'
+import cartRoutes from './routes/cart.js'
 
 app.use(express.json())
+app.use(express.static(__dirname))
 app.use('/api', authRoutes)
 app.use('/api', adminRoutes)
 app.use('/api', categoryRoutes)
 app.use('/api', productRoutes)
+app.use('/api', cartRoutes)
 
 app.use(morgan('tiny'))
 
